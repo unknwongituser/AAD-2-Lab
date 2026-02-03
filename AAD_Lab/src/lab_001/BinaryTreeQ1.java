@@ -44,6 +44,51 @@ class BT{
 		postorder(root.right);
 		System.out.print(root.data + " ");
 	}
+	public void nthpreorder(TNode root, int n, int i) {
+		if(root == null) {
+			return;
+		}
+		i++;
+		if(n==i) {
+			System.out.println();
+			System.out.println(root.data + " ");
+			return;
+		}
+		i++;
+		nthpreorder(root.left,n, i);
+		i++;
+		nthpreorder(root.right,n, i);
+	}
+	public void nthpostorder(TNode root, int n, int i) {
+		if(root == null) {
+			return;
+		}
+		if(n==i) {
+			System.out.println();
+			System.out.println(root.data + " ");
+			return;
+		}
+		i++;
+		nthpostorder(root.left,n, i);
+		i++;
+		i++;
+		nthpostorder(root.right,n, i);
+	}
+	public void nthinorder(TNode root, int n, int i) {
+		if(root == null) {
+			return;
+		}
+		if(n==i) {
+			System.out.println();
+			System.out.println(root.data + " ");
+			return;
+		}
+		i++;
+		nthinorder(root.left,n, i);
+		i++;
+		i++;
+		nthinorder(root.right,n, i);
+	}
 }
 public class BinaryTreeQ1 {
 
@@ -58,6 +103,8 @@ public class BinaryTreeQ1 {
 		System.out.println();
 		bt.postorder(root);
 		System.out.println();
+		bt.nthpreorder(root, 4, 1);
+		bt.nthinorder(root, 4, 1);
 	}
 
 }
